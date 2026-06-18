@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% if title %}
+            FASTAPI TICKETING - {{ title }}
+        {% else %}
+            FASTAPI TICKETING
+        {% endif %}
+    </title>
+</head>
+<body>
+    <h1>Home Page</h1>
+    {% for ticket in tickets %}
+    <h2>{{ ticket.title }}</h2>
+    <p>{{ ticket.status }}</p>
+    {% endfor %}
+</body>
+</html>

@@ -3,11 +3,14 @@
     <h1>Home Page</h1>
     {% for ticket in tickets %}
         <h2>
-            <a href="/tickets/{{ ticket.id }}">
+            <!-- <a href="/tickets/{{ ticket.id }}"> -->
+            <a href="{{ url_for('get_ticket', ticket_id=ticket.id) }}">
                 {{ ticket.title }}
             </a>
         </h2>
+        <p>{{ ticket.author }}</p>
         <p>{{ ticket.description }}</p>
+        <p>{{ ticket.date_posted }}</p>
         <p>{{ ticket.status }}</p>
     {% endfor %}
 {% endblock content %}

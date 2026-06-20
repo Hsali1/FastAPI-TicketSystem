@@ -1,6 +1,8 @@
 {% extends "layout.html" %}
 {% block content %}
     <h2>{{ ticket.title }}</h2>
+    <p>{{ ticket.author }}</p>
     <p>{{ ticket.description }}</p>
+    <p>{{ ticket.date_posted }}</p>
     <p>Status: {{ ticket.status }}</p>
 {% endblock content %}

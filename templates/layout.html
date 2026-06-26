@@ -10,10 +10,23 @@
             FASTAPI TICKETING
         {% endif %}
     </title>
+    <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
 </head>
 <body>
-    {% block content %}
+    <nav>
+        <div class="logo">
+            <a href="/">Ticket System</a>
+        </div>
 
-    {% endblock content %}
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/tickets/create">Create Ticket</a>
+        </div>
+    </nav>
+    <main class="container">
+        {% block content %}
+
+        {% endblock content %}
+    </main>
 </body>
 </html>

@@ -1,7 +1,9 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h1>Home Page</h1>
+    <h1>{{ title }}</h1>
     {% for ticket in tickets %}
         {% include "_ticket_card.html" %}
+    {% else %}
+        <p>No posts by this user yet.</p>
     {% endfor %}
 {% endblock content %}

@@ -1,5 +1,19 @@
 {% extends "layout.html" %}
+
 {% block content %}
-    <h1>Oops... {{ status_code }} Error</h1>
+
+<div class="ticket-card">
+
+    <h1>Oops... {{ status_code }}</h1>
+
     <p>{{ message }}</p>
-{% endblock content %}
+
+    <p>
+
+        <a href="/">← Back Home</a>
+
+    </p>
+
+</div>
+
+{% endblock %}

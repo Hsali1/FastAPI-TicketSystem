@@ -1,0 +1,39 @@
+    <div class="ticket-card">
+        <div class="ticket-header">
+            <img class="avatar" 
+            src="{{ ticket.created_by.image_path }}" 
+            alt="{{ ticket.created_by.username }}'s profile picture">
+            <div>
+                <a class="username" 
+                href="{{ url_for('user_created_tickets_page',
+                    user_id=ticket.created_by.id) }}">
+                    {{ ticket.created_by.username }}
+                </a>
+
+                <p class="date">
+                    {{ ticket.created_at.strftime('%B %d, %Y') }}
+                </p>
+            </div>
+        </div>
+        <h2>
+            <!-- <a href="/tickets/{{ ticket.id }}"> -->
+            <a href="{{ url_for('get_ticket_page',
+                ticket_id=ticket.id) }}">
+                {{ ticket.title }}
+            </a>
+        </h2>
+        <p class="description">
+            {{ ticket.description }}
+        </p>
+        <div class="ticket-footer">
+            <span>
+
+                Assigned:
+                {{ ticket.assigned_to.username if ticket.assigned_to else "Unassigned" }}
+
+            </span>
+            <span class="status">
+                {{ ticket.status }}
+            </span>
+        </div>
+    </div>

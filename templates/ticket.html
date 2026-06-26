@@ -1,8 +1,62 @@
 {% extends "layout.html" %}
+
 {% block content %}
-    <h2>{{ ticket.title }}</h2>
-    <p>{{ ticket.author }}</p>
-    <p>{{ ticket.description }}</p>
-    <p>{{ ticket.date_posted }}</p>
-    <p>Status: {{ ticket.status }}</p>
-{% endblock content %}
+
+<div class="ticket-card">
+
+    <div class="ticket-header">
+
+        <img class="avatar"
+             src="{{ ticket.created_by.image_path }}"
+             alt="{{ ticket.created_by.username }}">
+
+        <div>
+
+            <a class="username"
+               href="{{ url_for('user_created_tickets_page',
+                    user_id=ticket.created_by.id) }}">
+
+                {{ ticket.created_by.username }}
+
+            </a>
+
+            <p class="date">
+
+                {{ ticket.created_at.strftime('%B %d, %Y') }}
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <h1>{{ ticket.title }}</h1>
+
+    <p class="description">
+
+        {{ ticket.description }}
+
+    </p>
+
+    <hr>
+
+    <div class="ticket-footer">
+
+        <span>
+
+            Assigned:
+            {{ ticket.assigned_to.username if ticket.assigned_to else "Unassigned" }}
+
+        </span>
+
+        <span class="status">
+
+            {{ ticket.status }}
+
+        </span>
+
+    </div>
+
+</div>
+
+{% endblock %}
